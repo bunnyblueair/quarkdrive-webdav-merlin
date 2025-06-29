@@ -18,6 +18,9 @@
         <link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
         <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
         <link rel="stylesheet" type="text/css" href="/res/quarkdrivewebdav.css">
+        <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/res/layer/layer.js"></script>
+        <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
         <script type="text/javascript" src="/state.js"></script>
         <script type="text/javascript" src="/popup.js"></script>
         <script type="text/javascript" src="/help.js"></script>
@@ -40,14 +43,14 @@
                 'quarkdrivewebdav_port',
                 'quarkdrivewebdav_auth_user',
                 'quarkdrivewebdav_auth_password',
-                'quarkdrivewebdav_read_buffer_size',
-                'quarkdrivewebdav_cache_size',
-                'quarkdrivewebdav_root'
+                // 'quarkdrivewebdav_read_buffer_size',
+                // 'quarkdrivewebdav_cache_size',
+                // 'quarkdrivewebdav_root'
             ];
             var params_check = [
                 'quarkdrivewebdav_enable',
-                'quarkdrivewebdav_redirect',
-                'quarkdrivewebdav_public'
+                // 'quarkdrivewebdav_redirect',
+                // 'quarkdrivewebdav_public'
             ];
             function init() {
                 show_menu(menu_hook);
@@ -97,10 +100,10 @@
                     document.getElementById("port_tr").style.display = "";
                     document.getElementById("auth_user_tr").style.display = "";
                     document.getElementById("auth_password_tr").style.display = "";
-                    document.getElementById("read_buffer_size_tr").style.display = "";
-                    document.getElementById("cache_size_tr").style.display = "";
-                    document.getElementById("redirect_tr").style.display = "";
-                    document.getElementById("public_table").style.display = "";
+                    // document.getElementById("read_buffer_size_tr").style.display = "";
+                    // document.getElementById("cache_size_tr").style.display = "";
+                    // document.getElementById("redirect_tr").style.display = "";
+                    // document.getElementById("public_table").style.display = "";
                 } else {
                     document.getElementById("state_tr").style.display = "none";
                     document.getElementById("refresh_token_tr").style.display = "none";
@@ -108,10 +111,10 @@
                     document.getElementById("port_tr").style.display = "none";
                     document.getElementById("auth_user_tr").style.display = "none";
                     document.getElementById("auth_password_tr").style.display = "none";
-                    document.getElementById("read_buffer_size_tr").style.display = "none";
-                    document.getElementById("cache_size_tr").style.display = "none";
-                    document.getElementById("redirect_tr").style.display = "none";
-                    document.getElementById("public_table").style.display = "none";
+                    // document.getElementById("read_buffer_size_tr").style.display = "none";
+                    // document.getElementById("cache_size_tr").style.display = "none";
+                    // document.getElementById("redirect_tr").style.display = "none";
+                    // document.getElementById("public_table").style.display = "none";
                 }
 
             }
@@ -352,7 +355,7 @@
                                                                         <th>密码</th>
                                                                         <td><input type="text" id="quarkdrivewebdav_auth_password" class="input_15_table" value=""></td>
                                                                     </tr>
-                                                                    <tr id="read_buffer_size_tr">
+                                                                    <!-- <tr id="read_buffer_size_tr">
                                                                         <th>下载缓冲大小(bytes)</th>
                                                                         <td><input type="text" id="quarkdrivewebdav_read_buffer_size" value="10485760" class="input_15_table"></td>
                                                                     </tr>
@@ -375,10 +378,10 @@
                                                                                 </label>
                                                                             </div>
                                                                         </td>
-                                                                    </tr>
+                                                                    </tr> -->
                                                                 </tbody>
                                                             </table>
-                                                            <table id="public_table" style="margin:10px 0px 0px 0px;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable">
+                                                            <table id="public_table" style="margin:10px 0px 0px 0px;display: none;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable">
                                                                 <thead>
                                                                 <tr>
                                                                     <td colspan="2">公网访问设定 -- <em style="color: gold;">【建议设置五位数端口】【设置<a href="./Advanced_VirtualServer_Content.asp" target="_blank"><em>端口转发</em></a>】</em>【<a href="http://coolaf.com/tool/port" target="_blank"><em>检测端口开放情况</em></a>】</em></td>
@@ -408,7 +411,7 @@
                                                                 论坛技术支持：
                                                                 <a href="http://www.koolshare.cn" target="_blank"> <i><u>www.koolshare.cn</u></i> </a><br/>
                                                                 Github项目：
-                                                                <a href="https://github.com/koolshare/koolshare.github.io/tree/acelan_softcenter_ui" target="_blank"> <i><u>github.com/koolshare</u></i> </a><br />
+                                                                <a href="https://github.com/bunnyblueair/quarkdrive-webdav-merlin" target="_blank"> <i><u>github.com/koolshare</u></i> </a><br />
                                                             </div>
                                                         </td>
                                                     </tr>

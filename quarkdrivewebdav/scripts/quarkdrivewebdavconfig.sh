@@ -36,7 +36,7 @@ quarkdrivewebdav_start_stop(){
         echo_date "参数为：${quarkdrivewebdav_port} --quark-cookie ${quarkdrivewebdav_refresh_token} --root ${quarkdrivewebdav_root} -S ${quarkdrivewebdav_read_buffer_size} --cache-size ${quarkdrivewebdav_cache_size} $EXTRA_ARGS" >> $LOG_FILE
         #start-stop-daemon -S -q -b -m -p ${PID_FILE} \
         #  -x /bin/sh -- -c "${BIN} -I --workdir /var/run/quarkdrivewebdav --host 0.0.0.0 -p ${quarkdrivewebdav_port} -r ${quarkdrivewebdav_refresh_token} --root ${quarkdrivewebdav_root} -S ${quarkdrivewebdav_read_bufffer_size} $EXTRA_ARGS >/tmp/quarkdrivewebdav.log 2>&1"
-        ${BIN} -I --no-self-upgrade --workdir /var/run/quarkdrivewebdav --host 0.0.0.0 -p ${quarkdrivewebdav_port} --quark-cookie "${quarkdrivewebdav_refresh_token}" --root ${quarkdrivewebdav_root} -S ${quarkdrivewebdav_read_buffer_size} --cache-size ${quarkdrivewebdav_cache_size} $EXTRA_ARGS >/tmp/upload/quarkdrivewebdav.log 2>&1 &
+        ${BIN}   -p ${quarkdrivewebdav_port} --quark-cookie "${quarkdrivewebdav_refresh_token}"   $EXTRA_ARGS >/tmp/upload/quarkdrivewebdav.log 2>&1 &
         sleep 5s
         if [ ! -z "$(pidof quarkdrive-webdav)" -a ! -n "$(grep "Error" /tmp/upload/quarkdrivewebdav.log)" ] ; then
           echo_date "quarkdrive 进程启动成功！(PID: $(pidof quarkdrive-webdav))" >> $LOG_FILE
