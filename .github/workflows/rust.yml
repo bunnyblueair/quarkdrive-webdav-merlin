@@ -52,12 +52,19 @@ jobs:
           
           cd quarkdrive-webdav
           cargo zigbuild --release  --target aarch64-unknown-linux-musl
+          cp target/${{ matrix.target }}/release/quarkdrive-webdav* ../quarkdrivewebdav/bin
           tree target/${{ matrix.target }}/
           # if [[ "${{ matrix.target }}" == *"linux-gnu"* ]]; then
           #   cross build --release --target ${{ matrix.target }}
           # else
           #   cargo build --release --target ${{ matrix.target }}
           # fi
+      - name: dist
+        run: git status &&git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com" &&  git config --local user.name "github-actions[bot]" &&git add quarkdrivewebdav/ &&git commit -m "update by bot"
+      - uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master    
 
       # - name: Build
       #   if: matrix.target != 'aarch64-unknown-linux-gnu'
