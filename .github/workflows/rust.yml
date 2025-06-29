@@ -48,6 +48,7 @@ jobs:
 
       - name: Build (cross for Linux, cargo for others)
         run: |
+          rustup target add aarch64-unknown-linux-musl
           cd quarkdrive-webdav
           if [[ "${{ matrix.target }}" == *"linux-gnu"* ]]; then
             cross build --release --target ${{ matrix.target }}
