@@ -39,8 +39,8 @@ jobs:
         run: git clone https://github.com/chenqimiao/quarkdrive-webdav 
 
       - name: Install cross
-        run:  cargo install cross|
-              pip3 install ziglang
+        run:  cargo install cross |
+              pip3 install ziglang |
               cargo install --locked cargo-zigbuild
 
       - name: Add musl target
