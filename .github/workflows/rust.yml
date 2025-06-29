@@ -19,7 +19,7 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            target: aarch64-unknown-linux-musl
+            target: armv7-unknown-linux-musleabihf
 
     steps:
       - name: Checkout code
@@ -51,9 +51,9 @@ jobs:
         run: |
           
           cd quarkdrive-webdav
-          cargo zigbuild --release  --target aarch64-unknown-linux-musl
+          cargo zigbuild --release  --target armv7-unknown-linux-musleabihf
           cp target/${{ matrix.target }}/release/quarkdrive-webdav* ../quarkdrivewebdav/bin
-          tree target/${{ matrix.target }}/
+        # tree target/${{ matrix.target }}/
           # if [[ "${{ matrix.target }}" == *"linux-gnu"* ]]; then
           #   cross build --release --target ${{ matrix.target }}
           # else
