@@ -39,7 +39,8 @@ jobs:
         run: git clone https://github.com/chenqimiao/quarkdrive-webdav 
 
       - name: Install cross
-        run: cargo install cross
+        run: cargo install cross|
+              cargo install --locked cargo-zigbuild
 
       - name: Add macOS target
         if: contains(matrix.target, 'apple-darwin')
@@ -47,13 +48,14 @@ jobs:
 
       - name: Build (cross for Linux, cargo for others)
         run: |
-          rustup target add aarch64-unknown-linux-musl
+          
           cd quarkdrive-webdav
-          if [[ "${{ matrix.target }}" == *"linux-gnu"* ]]; then
-            cross build --release --target ${{ matrix.target }}
-          else
-            cargo build --release --target ${{ matrix.target }}
-          fi
+          cargo zigbuild --target aarch64-unknown-linux-musl.2.17
+          # if [[ "${{ matrix.target }}" == *"linux-gnu"* ]]; then
+          #   cross build --release --target ${{ matrix.target }}
+          # else
+          #   cargo build --release --target ${{ matrix.target }}
+          # fi
 
       # - name: Build
       #   if: matrix.target != 'aarch64-unknown-linux-gnu'
