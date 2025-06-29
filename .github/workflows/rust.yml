@@ -51,7 +51,7 @@ jobs:
         run: |
           
           cd quarkdrive-webdav
-          cargo zigbuild --target aarch64-unknown-linux-musl.2.17
+          cargo zigbuild --target aarch64-unknown-linux-musl
           # if [[ "${{ matrix.target }}" == *"linux-gnu"* ]]; then
           #   cross build --release --target ${{ matrix.target }}
           # else
