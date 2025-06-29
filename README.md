@@ -17,6 +17,8 @@
 使用本项目即表示您已阅读并同意本免责声明的全部内容。
 
 
-
+https://github.com/chenqimiao/quarkdrive-webdav/
 ## 本项目参考了以下开源项目，特此鸣谢
+
+- [quarkdrive-webdav](https://github.com/chenqimiao/quarkdrive-webdav/)
 - [aliyundrive-webdav](https://github.com/messense/aliyundrive-webdav)
