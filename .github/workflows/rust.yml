@@ -39,11 +39,12 @@ jobs:
         run: git clone https://github.com/chenqimiao/quarkdrive-webdav 
 
       - name: Install cross
-        run: cargo install cross|
+        run:  cargo install cross|
+              pip3 install ziglang
               cargo install --locked cargo-zigbuild
 
-      - name: Add macOS target
-        if: contains(matrix.target, 'apple-darwin')
+      - name: Add musl target
+        if: contains(matrix.target, 'musl')
         run: rustup target add ${{ matrix.target }}
 
       - name: Build (cross for Linux, cargo for others)
