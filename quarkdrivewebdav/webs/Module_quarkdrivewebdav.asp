@@ -151,14 +151,14 @@
                     alert("监听端口不能为空！！！");
                     return false;
                 }
-                if(!$.trim($('#quarkdrivewebdav_read_buffer_size').val())){
-                    alert("下载缓冲大小不能为空！！！");
-                    return false;
-                }
-                if(!$.trim($('#quarkdrivewebdav_cache_size').val())){
-                    alert("目录缓存不能为空！！！");
-                    return false;
-                }
+                // if(!$.trim($('#quarkdrivewebdav_read_buffer_size').val())){
+                //     alert("下载缓冲大小不能为空！！！");
+                //     return false;
+                // }
+                // if(!$.trim($('#quarkdrivewebdav_cache_size').val())){
+                //     alert("目录缓存不能为空！！！");
+                //     return false;
+                // }
 
                 for (var i = 0; i < params_check.length; i++) {
                     db_quarkdrivewebdav[params_check[i]] = E(params_check[i]).checked ? '1' : '0';
