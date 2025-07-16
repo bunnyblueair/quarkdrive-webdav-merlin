@@ -1,4 +1,4 @@
-name: Build binary package
+name: Release
 
 on:
   workflow_dispatch:
