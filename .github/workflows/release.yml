@@ -1,0 +1,52 @@
+name: Build binary package
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_body:
+        description: 'Release 描述（可选）'
+        required: false
+        default: ''
+  # push:
+  #   tags:
+  #     - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-lastet
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+
+
+
+
+
+      - name: Build
+        run: ./build.sh
+
+      # - name: Build
+      #   if: matrix.target != 'aarch64-unknown-linux-gnu'
+      #   run: cargo build --release --target ${{ matrix.target }}
+
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ququarkdrive-webdav-merlin.tar.gz
+          body: ${{ github.event.inputs.release_body }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 设置 Release 名称
+        id: release_vars
+        run: |
+          echo "name=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+
+      # 你可以在后续创建 Release 的步骤中使用 ${{ steps.release_vars.outputs.name }} 作为 release 名称
+      # ${{ github.event.inputs.release_body }} 可作为 release 描述
